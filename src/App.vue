@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import TheNavBar from './components/TheNavBar.vue';
+import TheNavBar from '@/components/TheNavBar.vue';
 import TheDashboard from "@/components/TheDashboard.vue";
-import TheFooter from './components/TheFooter.vue';
+import TheFooter from '@/components/TheFooter.vue';
 
 export default {
   components: {
