@@ -9,13 +9,13 @@
       <div class="collapse navbar-collapse text-end float-end" id="navbarText">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Our Story</a>
+            <a class="nav-link" href="#ourStorySection">Our Story</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">When and where</a>
+            <a class="nav-link" href="#weddingAttireSection">Attire</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Faq</a>
+            <a class="nav-link" href="#whenAndWhereSection">When & Where</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Rsvp</a>
@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      this.isSticky = window.scrollY > 50; // You can adjust this value
+      this.isSticky = window.scrollY > 50;
     },
   },
 };
@@ -51,31 +51,30 @@ export default {
 <style scoped>
 .navbar {
   background: transparent !important;
-  font-family: 'Great Vibes', cursive; /* Apply the font to the entire navbar */
+  font-family: 'Great Vibes', cursive;
 }
 
 .navbar-nav .nav-link {
-  font-size: 1.2rem; /* Match the paragraph size from your full-screen image */
-  margin: 0.2rem 0; /* Apply the same margin as well */
+  font-size: 1.2rem;
+  margin: 0.2rem 0;
 }
 
-/* Add some additional styling to ensure a smooth appearance */
 .navbar-toggler-icon {
-  background-color: #FFF; /* Adjust as needed to match your site's color scheme */
+  background-color: #FFF;
 }
 
 .navbar-nav .nav-link.active {
-  font-weight: bold; /* Add bold to the active link to make it stand out */
+  font-weight: bold;
 }
 
 .navbar {
-  transition: all 0.3s ease; /* Smooth transition */
+  transition: all 0.3s ease;
 }
 
 .sticky {
   background-color: black !important;
   color: white !important;
-  z-index: 1000; /* Ensure navbar is above other content */
+  z-index: 1000;
 }
 
 .sticky .nav-link {
