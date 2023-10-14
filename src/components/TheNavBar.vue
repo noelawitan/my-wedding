@@ -1,27 +1,30 @@
 <template>
   <nav :class="['navbar', 'navbar-expand-lg', 'fixed-top', isSticky ? 'sticky' : '']">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Noel & Claire</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-              aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#">
+        <img :src="brandLogoImg" :alt="brandLogoImg" style="width:auto;height:50px;"/>
+      </a>
+      <button class="navbar-toggler" type="button"
+              @click="toggleCollapseNavBar"
+              aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" ref="navbarToggler">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse text-end float-end" id="navbarText">
+      <div class="collapse navbar-collapse text-end float-end" id="navbarText" ref="navbarMenu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#ourStorySection">Our Story</a>
+            <a class="nav-link" href="#ourStorySection" @click="collapseNavbar">Our Story</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#weddingAttireSection">Attire</a>
+            <a class="nav-link" href="#weddingAttireSection" @click="collapseNavbar">Attire</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#whenAndWhereSection">When & Where</a>
+            <a class="nav-link" href="#whenAndWhereSection" @click="collapseNavbar">When & Where</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Rsvp</a>
+            <a class="nav-link" href="https://www.noelandclaire.com/rsvp/public/event/123" target="_self">Rsvp</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="mailto:noel.awitan@gmail.com">Contact</a>
           </li>
         </ul>
       </div>
@@ -29,22 +32,48 @@
   </nav>
 </template>
 <script>
+import BrandLogoImg from '@/assets/brand-logo.png';
+import {Collapse} from 'bootstrap';
+
 export default {
   data() {
     return {
+      brandLogoImg: BrandLogoImg,
+      collapse: null,
       isSticky: false,
     };
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
+    this.collapse = new Collapse(this.$refs.navbarMenu, {toggle: false});
+    this.$refs.navbarMenu.addEventListener('show.bs.collapse', this.setNavbarBlack);
+    this.$refs.navbarMenu.addEventListener('hide.bs.collapse', this.removeNavbarBlack);
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
+
+    this.$refs.navbarMenu.removeEventListener('show.bs.collapse', this.setNavbarBlack);
+    this.$refs.navbarMenu.removeEventListener('hide.bs.collapse', this.removeNavbarBlack);
   },
   methods: {
     handleScroll() {
       this.isSticky = window.scrollY > 50;
     },
+    setNavbarBlack() {
+      this.isSticky = true;
+    },
+    removeNavbarBlack() {
+      this.isSticky = window.scrollY > 50;
+    },
+    collapseNavbar() {
+      const navbarMenu = this.$refs.navbarMenu;
+      if (navbarMenu && window.getComputedStyle(navbarMenu).display !== 'none') {
+        this.collapse.hide();
+      }
+    },
+    toggleCollapseNavBar() {
+      this.collapse.toggle();
+    }
   },
 };
 </script>
@@ -72,7 +101,7 @@ export default {
 }
 
 .sticky {
-  background-color: black !important;
+  background-color: #000 !important;
   color: white !important;
   z-index: 1000;
 }

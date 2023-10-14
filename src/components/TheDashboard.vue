@@ -4,6 +4,9 @@
     <h1 class="drop-in">Noel and Claire's Wedding</h1>
     <p class="drop-in">{{ days }} Days {{ hours }} Hours {{ minutes }} Minutes {{ seconds }} Seconds</p>
     <p class="drop-in"></p>
+    <div class="mt-3">
+      <!-- TARGET URL -->
+    </div>
   </div>
   <our-story-section/>
   <gallery-section/>
@@ -53,6 +56,21 @@ export default {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
 .full-screen-image {
   background: url('../assets/dashboard-bg.jpg') center center/cover no-repeat fixed;
   width: 100%;
@@ -63,7 +81,6 @@ export default {
 }
 
 .full-screen-image h1 {
-  font-family: 'Great Vibes', cursive;
   font-size: 2.5rem;
   opacity: 0;
   animation: drop-in 1s forwards 0.7s;

@@ -1,7 +1,6 @@
 <template>
   <the-nav-bar></the-nav-bar>
   <the-dashboard></the-dashboard>
-
   <the-footer></the-footer>
 </template>
 
@@ -21,5 +20,10 @@ export default {
 <style>
 body {
   font-family: "Gotham SSm", Helvetica, Arial, sans-serif;
+}
+
+.bg-purple {
+  background-color: #3c1e70 !important;
+  color: #fff !important;
 }
 </style>

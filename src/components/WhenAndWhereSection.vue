@@ -17,7 +17,7 @@
               </div>
               <div class="card-body">
                 <i class="big fas fa-church"></i>
-                <p class="big">Chapel on the hill church @ 2 PM</p>
+                <p class="big">Chapel on the hill church @ 1:30 PM</p>
                 <p class="slight-big">Don Bosco Batulao, Brgy. Cahil, Calaca Batangas, Tagaytay, Batangas</p>
               </div>
             </div>
@@ -37,7 +37,7 @@
               </div>
               <div class="card-body">
                 <i class="big fas fa-map-marker-alt"></i>
-                <p class="big">Hacienda Solange @ 5 PM</p>
+                <p class="big">Hacienda Solange @ 4 PM</p>
                 <p class="slight-big">Brgy, 047 Aguinaldo - Alfonso Rd, Alfonso, 4123 Cavite</p>
               </div>
             </div>
